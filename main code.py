@@ -25,3 +25,15 @@ def give_r(n):#returns r when n-1 written as 2^r * q
         r+=1
     return r
     
+def primality_test(p,a):
+    r = give_r(p)
+    q = (p-1)/2**r
+    if modexp(a,q,p) == 1 or modexp(a,q,p) == p-1:
+        return True
+    for i in range(r):
+        b = (2**i)*q
+        if modexp(a,b,p) == p-1:
+            return True
+    return False
+        
+
