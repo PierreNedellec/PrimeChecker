@@ -6,8 +6,7 @@ Created on Sun Aug 13 13:38:14 2023
 """
 
 def dec2bin(num):
-    if num > 1:
-        dec2bin(num // 2)
-    print(num%2, end='')
+    b = bin(num)
+    b = str(b[2:])
+    return b
 
-dec2bin(100)
