@@ -1,0 +1,6 @@
+def dec2bin(num):
+    if num > 1:
+        dec2bin(num // 2)
+    print(num%2, end='')
+
+dec2bin(100)
