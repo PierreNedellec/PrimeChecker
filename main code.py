@@ -3,11 +3,6 @@ Created on Sun Aug 13 13:38:14 2023
 
 Author: Pierre Nedellec
 """
-def dec2bin(num):
-    b = bin(num)
-    b = str(b[2:])
-    return b
-
 def modexp(a,b,n): #computes a^b mod n
     (p,j,r) = (a,b,1)
     while j != 0:
