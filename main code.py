@@ -35,5 +35,13 @@ def primality_test(p,a):
         if modexp(a,b,p) == p-1:
             return True
     return False
-        
+
+p = 1234567891
+bases = [2,13,23,1662803]
+
+if primality_test(p,bases[0]) and primality_test(p,bases[1]) and primality_test(p,bases[2]) and primality_test(p,bases[3]):
+    print(f'{p} is prime')
+else:
+    print(f'{p} is not prime')
+
 
