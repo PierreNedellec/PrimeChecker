@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 """
 Created on Sun Aug 13 13:38:14 2023
 
-@author: pierr
+Author: Pierre Nedellec
 """
 
 def dec2bin(num):
