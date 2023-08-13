@@ -3,6 +3,7 @@ Created on Sun Aug 13 13:38:14 2023
 
 Author: Pierre Nedellec
 """
+import random
 def modexp(a,b,n): #computes a^b mod n
     (p,j,r) = (a,b,1)
     while j != 0:
@@ -31,10 +32,23 @@ def primality_test(p,a):
             return True
     return False
     
-p = 1234567893
-bases = [2,13,23,1662803]
+def give_bases(m):
+    fbases = []
+    a = 2
+    if m<=23:
+        for k in range(2,m):
+            fbases.append(k)
+        return fbases
+    for l in range(50):
+        while a in fbases:
+            a = random.randint(2,m-1)       
+        fbases.append(a)
+    return fbases
+    
+p = 12345678911000000057
+bases = give_bases(p)
 prime = True
-
+        
 for j in bases:
     if not primality_test(p,j):
         print(f'{p} is not prime')
