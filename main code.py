@@ -16,8 +16,8 @@ def modexp(a,b,n): #computes a^b mod n
 def give_r(n):#returns r when n-1 written as 2^r * q
     q = n-1
     r = 0
-    while q%2 == 0:
-        q /=2
+    while int(str(q)[-1])%2 == 0:
+        q = divmod(q,2)[0]
         r+=1
     return r
     
@@ -39,15 +39,16 @@ def give_bases(m):
         for k in range(2,m):
             fbases.append(k)
         return fbases
-    for l in range(50):
+    for l in range(20):
         while a in fbases:
             a = random.randint(2,m-1)       
         fbases.append(a)
     return fbases
     
-p = 12345678911000000057
+p = 25600128006400320016008004002001
 bases = give_bases(p)
 prime = True
+base = [2]
         
 for j in bases:
     if not primality_test(p,j):
