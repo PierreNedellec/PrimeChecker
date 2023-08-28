@@ -8,9 +8,9 @@ def modexp(a,b,n): #computes a^b mod n
     (p,j,r) = (a,b,1)
     while j != 0:
         if j%2 == 0:
-            (p,j,r) = ((p**2)%n,(j/2),(r%n))
+            (p,j,r) = ((p**2)%n,(divmod(j,2)[0]),(r%n))
         if j%2 == 1:
-            (p,j,r) = ((p**2)%n,(j-1)/2,(r*p)%n)
+            (p,j,r) = ((p**2)%n,(divmod(j-1,2)[0]),(r*p)%n)
     return r
             
 def give_r(n):#returns r when n-1 written as 2^r * q
