@@ -24,7 +24,6 @@ def give_rq(n):#returns r when n-1 written as 2^r * q
 def primality_test(p,a):
     r = give_rq(p)[0]
     b = give_rq(p)[1]
-    print(b)
     if modexp(a,b,p) == 1 or modexp(a,b,p) == p-1:
         return True
     for i in range(r):
