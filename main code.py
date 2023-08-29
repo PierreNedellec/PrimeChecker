@@ -4,9 +4,7 @@ Created on Sun Aug 13 13:38:14 2023
 Author: Pierre Nedellec
 """
 import random
-import time
 p = input('Test number: ')
-start_time = time.time()
 def modexp(a,b,n): #computes a^b mod n
     (p,j,r) = (a,b,1)
     while j != 0:
