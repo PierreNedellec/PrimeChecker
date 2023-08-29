@@ -4,6 +4,8 @@ Created on Sun Aug 13 13:38:14 2023
 Author: Pierre Nedellec
 """
 import random
+import time
+start_time = time.time()
 def modexp(a,b,n): #computes a^b mod n
     (p,j,r) = (a,b,1)
     while j != 0:
@@ -39,16 +41,16 @@ def give_bases(m):
         for k in range(2,m):
             fbases.append(k)
         return fbases
-    for l in range(20):
+    for l in range(9):
         while a in fbases:
             a = random.randint(2,m-1)       
         fbases.append(a)
     return fbases
     
-p = 25600128006400320016008004002001
+p = '''25600128006400320016008004002001'''
+p = int(''.join(p.split()))
 bases = give_bases(p)
 prime = True
-base = [2]
         
 for j in bases:
     if not primality_test(p,j):
@@ -57,3 +59,4 @@ for j in bases:
         break
 if prime:
     print(f'{p} is prime')
+print("--- %s seconds ---" % (time.time() - start_time))
