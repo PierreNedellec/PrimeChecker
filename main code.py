@@ -4,8 +4,6 @@ Created on Sun Aug 13 13:38:14 2023
 Author: Pierre Nedellec
 """
 import random
-import time
-start_time = time.time()
 def modexp(a,b,n): #computes a^b mod n
     (p,j,r) = (a,b,1)
     while j != 0:
@@ -59,4 +57,3 @@ for j in bases:
         break
 if prime:
     print(f'{p} is prime')
-print("--- %s seconds ---" % (time.time() - start_time))
