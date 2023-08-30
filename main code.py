@@ -7,6 +7,7 @@ import random
 import time
 p = input('Test number: ')
 start_time = time.time()
+
 def modexp(a,b,n): #computes a^b mod n
     (p,j,r) = (a,b,1)
     while j != 0:
@@ -54,14 +55,17 @@ def give_bases(m):
 def test(w,p):
     for j in w:
         if not primality_test(p,j):
-            print(f'{p} is not prime')
             return False
-    if prime:
-        print(f'{p} is prime')
+    return True
 
 p = int(''.join(p.split()))
 bases = give_bases(p)
-prime = True
 prime = test(bases,p)
+
+if prime:
+    print(f'{p} is prime')
+else:
+    print(f'{p} is not prime')
+
 
 print("--- %s seconds ---" % (time.time() - start_time))
