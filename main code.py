@@ -52,7 +52,8 @@ def give_bases(m):
         fbases.append(a)
     return fbases
 
-def test(w,p):
+def test(p):
+    w = give_bases(p)
     for j in w:
         if not primality_test(p,j):
             return False
@@ -60,12 +61,11 @@ def test(w,p):
 
 p = int(''.join(p.split()))
 bases = give_bases(p)
-prime = test(bases,p)
+prime = test(p)
 
 if prime:
     print(f'{p} is prime')
 else:
     print(f'{p} is not prime')
-
 
 print("--- %s seconds ---" % (time.time() - start_time))
