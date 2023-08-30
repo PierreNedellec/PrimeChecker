@@ -50,16 +50,18 @@ def give_bases(m):
             a = random.randint(2,m-1)       
         fbases.append(a)
     return fbases
-    
+
+def test(w,p):
+    for j in w:
+        if not primality_test(p,j):
+            print(f'{p} is not prime')
+            return False
+    if prime:
+        print(f'{p} is prime')
+
 p = int(''.join(p.split()))
 bases = give_bases(p)
 prime = True
-        
-for j in bases:
-    if not primality_test(p,j):
-        print(f'{p} is not prime')
-        prime = False
-        break
-if prime:
-    print(f'{p} is prime')
+prime = test(bases,p)
+
 print("--- %s seconds ---" % (time.time() - start_time))
