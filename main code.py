@@ -52,6 +52,8 @@ def give_bases(m):
     return fbases
 
 def test(p):
+    if p < 2:
+        return False
     w = give_bases(p)
     for j in w:
         if not primality_test(p,j):
