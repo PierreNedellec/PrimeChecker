@@ -4,8 +4,7 @@ Created on Sun Aug 13 13:38:14 2023
 Author: Pierre Nedellec
 """
 import random
-
-p = input('Test number: ')
+import tkinter as tk
 
 def modexp(a,b,n): #computes a^b mod n
     (p,j,r) = (a,b,1)
@@ -52,16 +51,42 @@ def give_bases(m):
     return fbases
 
 def test(p):
+    if p < 2:
+        return False
     w = give_bases(p)
     for j in w:
         if not primality_test(p,j):
             return False
     return True
 
-p = int(''.join(p.split()))
-prime = test(p)
+def pressed():
+    primetxt.place_forget()
+    nprimetxt.place_forget()
+    p = text.get()
+    p = int(''.join(p.split()))
+    prime = test(p)
+    if prime:
+        primetxt.place(x=10,y=60)
+    else:
+        nprimetxt.place(x=10,y=60)
+        
+root = tk.Tk()
+root.geometry('400x100')
+root.title('Prime checker')
+root.resizable(False,False)
 
-if prime:
-    print(f'{p} is prime')
-else:
-    print(f'{p} is not prime')
+text = tk.StringVar()
+
+label = tk.Label(root, text='Enter number here: ',font=('Arial',12))
+label.place(x=10,y=10)
+
+primetxt = tk.Label(root, text='This number is PRIME',font=('Arial',12))
+nprimetxt = tk.Label(root, text='This number is not prime',font=('Arial',12))
+
+e = tk.Entry(root,textvariable=text,font=('Arial', 10))
+e.place(x=10,y=30,height=20,width=360)
+
+button = tk.Button(root, text='Check', font=('Arial', 12),command=pressed)
+button.place(x=300,y=10, height=20, width=70)
+                   
+root.mainloop()
