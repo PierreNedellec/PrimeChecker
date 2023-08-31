@@ -59,16 +59,17 @@ def test(p):
     return True
 
 def pressed():
+    primetxt.place_forget()
+    nprimetxt.place_forget()
     start_time = time.time()
     p = text.get()
     p = int(''.join(p.split()))
     prime = test(p)
     if prime:
-        print(f'{p} is prime')
+        primetxt.place(x=10,y=60)
     else:
-        print(f'{p} is not prime')
+        nprimetxt.place(x=10,y=60)
     print("--- %s seconds ---" % (time.time() - start_time))
-    root.destroy()
         
 root = tk.Tk()
 root.geometry('400x100')
@@ -79,6 +80,9 @@ text = tk.StringVar()
 
 label = tk.Label(root, text='Enter number here: ',font=('Arial',12))
 label.place(x=10,y=10)
+
+primetxt = tk.Label(root, text='This number is PRIME',font=('Arial',12))
+nprimetxt = tk.Label(root, text='This number is not prime',font=('Arial',12))
 
 e = tk.Entry(root,textvariable=text,font=('Arial', 10))
 e.place(x=10,y=30,height=20,width=360)
