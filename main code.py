@@ -4,7 +4,9 @@ Created on Sun Aug 13 13:38:14 2023
 Author: Pierre Nedellec
 """
 import random
+
 p = input('Test number: ')
+
 def modexp(a,b,n): #computes a^b mod n
     (p,j,r) = (a,b,1)
     while j != 0:
@@ -57,7 +59,6 @@ def test(p):
     return True
 
 p = int(''.join(p.split()))
-bases = give_bases(p)
 prime = test(p)
 
 if prime:
