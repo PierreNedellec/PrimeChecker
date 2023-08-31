@@ -5,8 +5,7 @@ Author: Pierre Nedellec
 """
 import random
 import time
-p = input('Test number: ')
-start_time = time.time()
+import tkinter as tk
 
 def modexp(a,b,n): #computes a^b mod n
     (p,j,r) = (a,b,1)
@@ -59,13 +58,32 @@ def test(p):
             return False
     return True
 
-p = int(''.join(p.split()))
-bases = give_bases(p)
-prime = test(p)
+def pressed():
+    start_time = time.time()
+    p = text.get()
+    p = int(''.join(p.split()))
+    prime = test(p)
+    if prime:
+        print(f'{p} is prime')
+    else:
+        print(f'{p} is not prime')
+    print("--- %s seconds ---" % (time.time() - start_time))
+    root.destroy()
+        
+root = tk.Tk()
+root.geometry('400x100')
+root.title('Prime checker')
+root.resizable(False,False)
 
-if prime:
-    print(f'{p} is prime')
-else:
-    print(f'{p} is not prime')
+text = tk.StringVar()
 
-print("--- %s seconds ---" % (time.time() - start_time))
+label = tk.Label(root, text='Enter number here: ',font=('Arial',12))
+label.place(x=10,y=10)
+
+e = tk.Entry(root,textvariable=text,font=('Arial', 10))
+e.place(x=10,y=30,height=20,width=360)
+
+button = tk.Button(root, text='Check', font=('Arial', 12),command=pressed)
+button.place(x=300,y=10, height=20, width=70)
+                   
+root.mainloop()
