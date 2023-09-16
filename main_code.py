@@ -4,8 +4,6 @@ Created on Sun Aug 13 13:38:14 2023
 Author: PierreNedellec
 """
 import random
-import time
-import tkinter as tk
 
 def modexp(a,b,n): #computes a^b mod n
     (p,j,r) = (a,b,1)

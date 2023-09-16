@@ -5,7 +5,7 @@ Created on Sat Sep 16 17:39:51 2023
 """
 import time
 import tkinter as tk
-from main_code.py import testresult
+from main_code import testresult
 
 def pressed():
     primetxt.place_forget()
@@ -14,7 +14,7 @@ def pressed():
     p = text.get()
     p = int(''.join(p.split()))
     
-    primetxt.config(text = main_code.py.testresult(p))
+    primetxt.config(text = testresult(p))
     primetxt.place(x=10,y=60)
 
     print("--- %s seconds ---" % (time.time() - start_time))
